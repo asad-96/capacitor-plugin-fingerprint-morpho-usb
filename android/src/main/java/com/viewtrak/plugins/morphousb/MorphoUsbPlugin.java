@@ -19,4 +19,15 @@ public class MorphoUsbPlugin extends Plugin {
         ret.put("value", implementation.echo(value));
         call.resolve(ret);
     }
+
+    @Override
+    public void load() {
+        super.load();
+        implementation.init(this.getActivity());
+    }
+
+    @PluginMethod
+    public void openDevice(PluginCall call) {
+        implementation.openDevice(this.getActivity(), call);
+    }
 }
