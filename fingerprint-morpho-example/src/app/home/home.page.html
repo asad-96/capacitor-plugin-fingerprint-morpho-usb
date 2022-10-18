@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Fingerprint Morpho Usb </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <strong>{{ 'Open Device: ' + openDeviceSuccess }}</strong>
+    <br />
+    <strong>{{ 'Message: ' + openDeviceMessage }}</strong>
+    <strong *ngIf="capturedFingerprint"
+      >{{ 'Finger Print Response:' + capturedFingerprint.success +", "+
+      capturedFingerprint.message }}</strong
+    >
+    <br />
+    <strong *ngIf="eventResponse"
+      >{{ 'EventResponse: ' + eventResponse }}</strong
+    >
+    <br />
+    <ion-button (click)="openDevice()"> Open Device </ion-button>
+    <div *ngIf="openDeviceSuccess">
+      <form [formGroup]="form">
+        <ion-list>
+          <ion-item>
+            <ion-label>User ID</ion-label>
+            <ion-input formControlName="userID" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>First Name</ion-label>
+            <ion-input formControlName="firstName" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Last Name</ion-label>
+            <ion-input formControlName="lastName" type="text"></ion-input>
+          </ion-item>
+          <ion-button (click)="captureFingerprint()">
+            Capture Fingerprint
+          </ion-button>
+          <!-- <ion-button (click)="compareFingerprint()">
+            Compare Fingerprint
+          </ion-button> -->
+        </ion-list>
+      </form>
+    </div>
+  </div>
+</ion-content>

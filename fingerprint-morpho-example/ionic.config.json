@@ -1,0 +1,7 @@
+{
+  "name": "fingerprint-morpho-example",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
